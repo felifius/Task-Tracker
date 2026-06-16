@@ -1,5 +1,8 @@
 Program to track your tasks:
 
+# Link command
+npm link
+
 # Adding a new task
 task-cli add "Buy groceries"
 # Updating and deleting tasks
