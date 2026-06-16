@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = "C:\\Users\\felip\\OneDrive\\Desktop\\task-tracker";
-const filepath = path.join(dir, 'tasks.json');
+const filepath = path.join(__dirname, 'tasks.json');
 const date = new Date();
 const today = date.getMonth() + '/' + date.getDate();
 
@@ -58,7 +57,6 @@ module.exports = {
     deleteTask,
     updateTask,
     markTask,
-    dir,
     filepath,
     today
 };
