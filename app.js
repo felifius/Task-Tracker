@@ -26,7 +26,12 @@ function main(){
             break;
         case 'list':
             const list = JSON.parse(fs.readFileSync(filepath, 'utf-8'));
-            console.log(list.map(task => `\nID: ${task.id}| Nome:${task.title} -- ${task.description} \nStatus: ${task.status}\nData de criação: ${task.createdAt} | Data de atualização: ${task.updatedAt} `).join('\n'));
+            if (commands[1] === 'todo' || commands[1] === 'done' || commands[1] === 'in-progress') {
+                const filteredList = list.filter(task => task.status === commands[1]);
+                console.log(filteredList.map(task => `\nID: ${task.id}| Nome:${task.title} -- ${task.description} \nStatus: ${task.status}\nData de criação: ${task.createdAt} | Data de atualização: ${task.updatedAt} `).join('\n'));
+            } else {
+                console.log(list.map(task => `\nID: ${task.id}| Nome:${task.title} -- ${task.description} \nStatus: ${task.status}\nData de criação: ${task.createdAt} | Data de atualização: ${task.updatedAt} `).join('\n'));
+            }
             break;
         case 'delete': 
             deleteTask(parseInt(commands[1]));
